@@ -9,7 +9,7 @@ loaded_model=pickle.load(open('IMDBMovieReviews.sav','rb'))
 
 def movie_review(input_data):
     if(input_data==['']):
-        return 'Please tell about the movie first'
+        return 'Please tell about the movie'
     else:
         prediction=loaded_model.predict(input_data)
         if(prediction=='positive'):
@@ -28,7 +28,7 @@ def main():
 
     # creating a button for prediction
     
-    if(st.text_input or st.button('Movie Critic Result')):
+    if(st.button('Movie Critic Result')):
         Movie_prediction=movie_review([review])
         
     st.success(Movie_prediction)
